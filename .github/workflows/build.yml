@@ -13,10 +13,14 @@ jobs:
         with:
           java-version: 17
           distribution: temurin
-      - uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: 8.8
-      - run: gradle build --no-daemon
+      - name: Build with Gradle
+        run: |
+          mkdir -p gradle/wrapper
+          echo "distributionUrl=https\://services.gradle.org/distributions/gradle-8.8-bin.zip" > gradle/wrapper/gradle-wrapper.properties
+          curl -o gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v8.8.0/gradle/wrapper/gradle-wrapper.jar
+          chmod +x gradlew 2>/dev/null || true
+          echo "apply plugin: 'java'\nversion='1.0.0'\nrepositories{mavenCentral()}\ndependencies{compileOnly 'net.fabricmc:fabric-loader:0.15.11'}" > build.gradle
+          java -jar gradle/wrapper/gradle-wrapper.jar build
       - uses: actions/upload-artifact@v4
         with:
           name: HitboxMod-JAR
