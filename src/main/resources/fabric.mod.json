@@ -1,16 +1,15 @@
 {
   "schemaVersion": 1,
-  "id": "hitboxmod",
+  "id": "emptymod",
   "version": "1.0.0",
-  "name": "HitboxMod",
-  "description": "Visual hitbox expander",
+  "name": "EmptyMod",
+  "description": "Does nothing",
   "authors": ["Swill"],
   "entrypoints": {
-    "client": ["com.swill.hitbox.HitboxMod"]
+    "main": ["com.swill.empty.EmptyMod"]
   },
   "depends": {
     "fabricloader": ">=0.15.11",
-    "minecraft": "1.20.4",
-    "fabric-api": "*"
+    "minecraft": "1.20.4"
   }
 }
