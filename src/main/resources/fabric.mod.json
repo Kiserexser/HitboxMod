@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "hitboxmod",
+  "version": "1.0.0",
+  "name": "HitboxMod",
+  "description": "Visual hitbox expander",
+  "authors": ["Swill"],
+  "entrypoints": {
+    "client": ["com.swill.hitbox.HitboxMod"]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "1.20.4",
+    "fabric-api": "*"
+  }
+}
